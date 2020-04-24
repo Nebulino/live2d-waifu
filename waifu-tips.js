@@ -233,13 +233,13 @@ function loadWidget(config) {
             if (!modelList) await loadModelList();
             let target = randomSelection(modelList.models[modelId]);
             loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
-            showMessage("Is my new clothes beautiful?", 4000, 10);
+            showMessage("Are my new clothes beautiful?", 4000, 10);
         } else {
             fetch(`${apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)
                 .then(response => response.json())
                 .then(result => {
                     if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("I don't have any other clothes yet!", 4000, 10);
-                    else loadModel(modelId, result.textures.id, "Is my new clothes beautiful?");
+                    else loadModel(modelId, result.textures.id, "Are my new clothes beautiful?");
                 });
         }
     }
